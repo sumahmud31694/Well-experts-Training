@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WELL EXPERTS | Drilling &amp; Well Control Training</title>
+<meta name="description" content="IWCF &amp; IADC WellSharp accredited drilling and well control training. Book now.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══ Variables ══ */
+:root{--bg:#0c0c3d;--card:#111155;--sf:#1a1a6e;--hv:#222280;--g:#d4a843;--gd:#b8922e;--gg:rgba(212,168,67,.1);--gs:rgba(212,168,67,.06);--bl:#5b8af5;--bb:rgba(91,138,245,.25);--bg2:rgba(91,138,245,.12);--tl:#10b981;--rd:#ef4444;--or:#f59e0b;--gr:#22c55e;--pu:#a78bfa;--t1:#e8ecf4;--t2:#9aa8c7;--t3:#5d6b8a;--bd:rgba(255,255,255,.08);--ba:rgba(212,168,67,.3);--r:14px;--rs:10px;--rx:6px}
+
+/* ══ Reset ══ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-y:scroll}
+body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#0a0a38 0%,#0e0e4a 25%,#19196f 50%,#0e0e4a 75%,#0a0a38 100%);color:var(--t1);min-height:100vh;overflow-x:hidden}
+
+/* ══ Background mesh ══ */
+.bg-mesh{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(91,138,245,.06),transparent 60%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(212,168,67,.04),transparent 60%),radial-gradient(ellipse 50% 50% at 50% 50%,rgba(25,25,111,.15),transparent 70%)}
+
+/* ══ Scroll progress ══ */
+.scroll-prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g),var(--gd));z-index:200;width:0;transition:width .1s}
+
+/* ══ Topbar ══ */
+.topbar{background:#0a0a3a;border-bottom:1px solid var(--bd);padding:6px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3);position:relative;z-index:101}
+.topbar a{color:var(--t3);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .3s}
+.topbar a:hover{color:var(--g)}
+.topbar-l{display:flex;gap:20px;align-items:center}
+.topbar-r{display:flex;gap:12px}
+.tb{padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border:1px solid;display:inline-flex;align-items:center;gap:4px}
+.tb img{height:14px;object-fit:contain;border-radius:2px}
+.tb-i{color:var(--bl);border-color:rgba(45,125,210,.3);background:rgba(45,125,210,.08)}
+.tb-w{color:var(--or);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.08)}
+.tb-m{color:var(--gr);border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08)}
+
+/* ══ Header ══ */
+.header{position:sticky;top:0;z-index:100;padding:14px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);backdrop-filter:blur(30px);background:rgba(10,10,56,.92)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand-logo{width:46px;height:46px;background:linear-gradient(135deg,var(--g),var(--gd));border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--bg);box-shadow:0 4px 20px rgba(212,168,67,.2)}
+.brand h1{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;color:var(--g);line-height:1}
+.brand span{font-size:10px;letter-spacing:2px;color:var(--t3);text-transform:uppercase}
+.nav{display:flex;gap:6px;align-items:center}
+.nl{padding:8px 14px;border-radius:var(--rs);font-size:13px;font-weight:500;color:var(--t2);text-decoration:none;transition:all .3s;border:1px solid transparent}
+.nl:hover{color:var(--t1);background:var(--sf)}
+.nl.on{color:var(--g);border-color:var(--ba);background:var(--gs)}
+
+/* ══ Mobile menu ══ */
+.mob-btn{display:none;flex-direction:column;gap:5px;padding:8px;background:var(--sf);border:1px solid var(--bd);border-radius:8px;cursor:pointer}
+.mob-btn span{display:block;width:20px;height:2px;background:var(--t2);border-radius:2px;transition:all .3s}
+.mob-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.mob-btn.open span:nth-child(2){opacity:0}
+.mob-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob-menu{display:none;position:fixed;top:77px;left:0;right:0;background:var(--card);border-bottom:1px solid var(--bd);z-index:99;flex-direction:column;padding:8px 16px 16px;backdrop-filter:blur(20px)}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:14px 16px;border-radius:10px;font-size:14px;font-weight:500;color:var(--t2);text-decoration:none;transition:all .2s}
+.mob-menu a:hover{background:var(--sf);color:var(--g)}
+
+/* ══ Trust bar ══ */
+.trust-bar{padding:28px 48px;text-align:center;border-bottom:1px solid var(--bd);position:relative;z-index:10;overflow:hidden}
+.trust-label{font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--t3);margin-bottom:14px;font-weight:600}
+.trust-track{display:flex;align-items:center;gap:40px;animation:marq 25s linear infinite;width:max-content}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.trust-logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--t3);opacity:.85;white-space:nowrap;padding:8px 18px;border:1px solid var(--bd);border-radius:10px;background:rgba(255,255,255,.02);animation:logoGlow 3s ease-in-out infinite alternate}
+.trust-logo:nth-child(2n){animation-delay:.5s}
+.trust-logo:nth-child(3n){animation-delay:1s}
+.trust-logo:nth-child(4n){animation-delay:1.5s}
+@keyframes logoGlow{0%{border-color:rgba(255,255,255,.08);box-shadow:0 0 0 rgba(212,168,67,0)}50%{border-color:rgba(212,168,67,.4);box-shadow:0 0 20px rgba(212,168,67,.15)}100%{border-color:rgba(255,255,255,.08);box-shadow:0 0 0 rgba(212,168,67,0)}}
+.trust-logo:hover{opacity:1;color:var(--g);border-color:var(--ba);background:rgba(212,168,67,.04)}
+.trust-logo img{height:34px;width:auto;object-fit:contain;border-radius:4px;transition:all .4s}
+.trust-logo:hover img{filter:brightness(1.6)}
+
+/* ══ Counter bar ══ */
+.counter-bar{display:flex;justify-content:center;gap:60px;padding:36px 48px;position:relative;z-index:10;border-bottom:1px solid var(--bd);background:linear-gradient(180deg,rgba(25,25,111,.15),transparent)}
+.cnt{text-align:center}
+.cnt-n{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--g);line-height:1}
+.cnt-l{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:var(--t3);font-weight:600;margin-top:4px}
+
+/* ══ Buttons ══ */
+.btn{padding:12px 24px;border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;border:none;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-g{background:linear-gradient(135deg,var(--g),var(--gd));color:var(--bg);box-shadow:0 2px 20px rgba(212,168,67,.2)}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,.35)}
+.btn-w{background:#25D366;color:#fff;box-shadow:0 2px 15px rgba(37,211,102,.2)}
+.btn-w:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;border:1px solid var(--g);color:var(--g)}
+.btn-o:hover{background:var(--gs)}
+.btn-gh{background:var(--sf);color:var(--t1);border:1px solid var(--bd)}
+.btn-gh:hover{background:var(--hv);border-color:var(--ba)}
+.btn-sm{padding:8px 16px;font-size:12px}
+.btn-lg{padding:16px 32px;font-size:15px}
+
+/* ══ Hero ══ */
+.hero-wrap{position:relative;overflow:hidden}
+.hero{position:relative;z-index:10;padding:80px 48px 60px;text-align:center;max-width:960px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;background:var(--gs);border:1px solid var(--ba);font-size:11px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:2px;margin-bottom:28px}
+.dp{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.hero h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,68px);letter-spacing:3px;line-height:1.05;margin-bottom:20px}
+.hero h2 em{font-style:normal;background:linear-gradient(135deg,var(--g),#e0bb5e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:17px;color:var(--t2);line-height:1.8;max-width:640px;margin:0 auto 36px}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ══ Floating videos ══ */
+
+
+
+.fv:hover{opacity:1}
+.fv iframe{width:100%;height:100%;border:none;pointer-events:none}
+.fv::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,56,.5),rgba(10,10,56,.3));pointer-events:none}
+.fv-tl{top:60px;left:32px;width:180px;height:120px;animation:fvf 8s ease-in-out infinite}
+.fv-tr{top:40px;right:32px;width:160px;height:100px;animation:fvf 10s ease-in-out infinite reverse}
+.fv-bl{bottom:80px;left:40px;width:170px;height:110px;animation:fvf 9s ease-in-out infinite 1s}
+.fv-br{bottom:60px;right:28px;width:190px;height:120px;animation:fvf 7s ease-in-out infinite .5s}
+.fv{position:absolute;border-radius:18px;overflow:hidden;z-index:1;opacity:0;transition:opacity 1.5s ease-in;border:1px solid rgba(212,168,67,.15);box-shadow:0 8px 40px rgba(0,0,0,.4);background:#12124a}
+.fv:not(:empty){opacity:.6}
+
+@keyframes fvf{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+
+
+
+
+
+/* ══ Section layout ══ */
+.sec{position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:0 48px 72px}
+.stag{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--bl);font-weight:700;margin-bottom:6px}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:3px;line-height:1}
+.ssub{font-size:14px;color:var(--t3);margin-top:6px}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
+
+/* ══ Strengths grid ══ */
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.scard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:28px 22px;transition:all .4s;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sc,var(--bl));opacity:0;transition:opacity .3s}
+.scard:hover{border-color:var(--ba);transform:translateY(-4px)}
+.scard:hover::before{opacity:1}
+.si{width:48px;height:48px;border-radius:12px;background:var(--bg2);border:1px solid var(--bb);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.st{font-size:15px;font-weight:700;margin-bottom:8px}
+.sd{font-size:13px;color:var(--t2);line-height:1.6}
+
+/* ══ Credentials grid ══ */
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.cred-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:24px;text-align:center;transition:all .3s}
+.cred-card:hover{border-color:var(--ba);transform:translateY(-3px)}
+.cred-icon{font-size:40px;margin-bottom:12px}
+.cred-icon img{height:40px;object-fit:contain;border-radius:6px}
+.cred-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.cred-desc{font-size:12px;color:var(--t3);line-height:1.5}
+.cred-badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+/* ══ Comparison table ══ */
+.comp-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+.comp-table th{background:var(--sf);padding:14px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);border-bottom:2px solid var(--ba)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid var(--bd);color:var(--t2)}
+.comp-table tr:hover td{background:rgba(212,168,67,.03)}
+.comp-we{color:var(--g);font-weight:700}
+.ck{color:var(--gr);font-size:16px}
+.cx{color:var(--rd);font-size:14px;opacity:.5}
+
+/* ══ Video showcase ══ */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .4s}
+.vcard:hover{border-color:var(--ba);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.vthumb{aspect-ratio:16/9;background:#0a1525;overflow:hidden}
+.vthumb iframe{width:100%;height:100%;border:none}
+.vinfo{padding:16px 18px}
+.vtitle{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.vdesc{font-size:12px;color:var(--t3);line-height:1.5}
+
+/* ══ Filters ══ */
+.fbar{display:flex;gap:8px;flex-wrap:wrap}
+.fc{padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;background:var(--sf);border:1px solid var(--bd);color:var(--t3);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:6px}
+.fc:hover{border-color:var(--ba);color:var(--t2)}
+.fc.on{background:var(--gs);border-color:var(--g);color:var(--g)}
+.fc.onc{border-color:var(--cc);color:var(--cc);background:color-mix(in srgb,var(--cc) 8%,transparent)}
+.fdot{width:8px;height:8px;border-radius:2px}
+
+/* ══ Group banner ══ */
+.gbanner{background:linear-gradient(135deg,rgba(45,125,210,.08),rgba(212,168,67,.08));border:1px solid var(--ba);border-radius:var(--r);padding:16px 24px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.gbanner-t{font-size:14px;color:var(--t2)}
+.gbanner-t strong{color:var(--g)}
+.gbanner-a{font-size:12px;color:var(--g);font-weight:700;text-decoration:none;display:flex;align-items:center;gap:4px}
+
+/* ══ Course cards ══ */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(370px,1fr));gap:16px}
+.cc{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .4s;cursor:pointer}
+.cc:hover{border-color:var(--ba);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.cc-accent{height:3px;background:var(--ccc)}
+.cc-body{padding:22px 24px}
+.cc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.cc-cat{padding:4px 10px;border-radius:var(--rx);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#fff;background:var(--ccc)}
+.cc-seats{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);display:flex;align-items:center;gap:5px}
+.dot{width:6px;height:6px;border-radius:50%}
+.dot-ok{background:var(--gr)}
+.dot-lo{background:var(--or)}
+.dot-fu{background:var(--rd)}
+.cc-title{font-size:17px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.ub{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;margin-bottom:10px}
+.ub-hot{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--rd);animation:pulse 2s infinite}
+.ub-soon{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:var(--or)}
+.ub-new{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:var(--gr)}
+.cc-price{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);margin-bottom:8px;display:flex;align-items:baseline;gap:4px}
+.cc-price-note{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--t3);font-weight:400}
+.cc-pass{font-size:11px;color:var(--gr);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:4px}
+.cc-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mi{display:flex;align-items:center;gap:8px}
+.mii{width:32px;height:32px;border-radius:8px;background:var(--sf);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mil{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);font-weight:600}
+.miv{font-size:13px;color:var(--t2);font-weight:500}
+.cc-foot{padding:14px 24px;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.cc-inst{font-size:12px;color:var(--t3)}
+.cc-book{padding:9px 20px;border-radius:var(--rx);background:linear-gradient(135deg,var(--g),var(--gd));color:var(--bg);font-size:12px;font-weight:700;border:none;cursor:pointer;transition:all .3s}
+.cc-book:hover{box-shadow:0 4px 15px rgba(212,168,67,.4);transform:translateY(-1px)}
+.cc-book.full{background:var(--sf);color:var(--t3);cursor:not-allowed}
+.cc-det{padding:6px 12px;border-radius:var(--rx);background:var(--sf);border:1px solid var(--bd);color:var(--t2);font-size:11px;font-weight:600;cursor:pointer;transition:all .3s;margin-right:8px}
+.cc-det:hover{border-color:var(--bl);color:var(--bl)}
+.nores{grid-column:1/-1;text-align:center;padding:60px;color:var(--t3)}
+.nores h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--t2);margin-bottom:8px}
+
+/* ══ Detail modal extras ══ */
+.det-sec{margin-bottom:20px}
+.det-sec h4{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--bl);margin-bottom:10px;font-weight:700}
+.det-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.det-tag{padding:4px 10px;border-radius:100px;font-size:10px;background:var(--sf);border:1px solid var(--bd);color:var(--t3)}
+.det-cert{background:linear-gradient(135deg,rgba(212,168,67,.08),rgba(45,125,210,.08));border:1px solid var(--ba);border-radius:var(--r);padding:16px;text-align:center;margin-top:16px}
+.det-cert-t{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--g);margin-bottom:4px}
+.det-cert-d{font-size:12px;color:var(--t2)}
+
+/* ══ Testimonials ══ */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.tc{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:24px;transition:all .3s}
+.tc:hover{border-color:var(--bb)}
+.tq{font-size:14px;color:var(--t2);line-height:1.7;font-style:italic;margin-bottom:18px;position:relative;padding-left:20px}
+.tq::before{content:'\201C';position:absolute;left:0;top:-6px;font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--bl);line-height:1}
+.ta{display:flex;align-items:center;gap:12px}
+.tav{width:44px;height:44px;border-radius:50%;background:var(--sf);border:2px solid var(--bb);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--bl);flex-shrink:0}
+.tn{font-size:14px;font-weight:700}
+.tr{font-size:11px;color:var(--t3);margin-top:1px}
+.tli{display:inline-flex;font-size:10px;color:var(--bl);text-decoration:none;margin-top:3px;font-weight:600}
+.tli:hover{text-decoration:underline}
+
+/* ══ Contact cards ══ */
+.contact-strip{position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:0 48px 72px}
+.con-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.con-card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:24px;text-align:center;transition:all .3s;text-decoration:none;display:block}
+.con-card:hover{border-color:var(--ba);transform:translateY(-3px)}
+.con-i{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px}
+.ci-p{background:rgba(45,125,210,.1);border:1px solid rgba(45,125,210,.2);color:var(--bl)}
+.ci-e{background:var(--gs);border:1px solid var(--ba);color:var(--g)}
+.ci-w{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);color:#25D366}
+.ci-l{background:rgba(10,102,194,.1);border:1px solid rgba(10,102,194,.2);color:#0A66C2}
+.con-l{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--t3);font-weight:600;margin-bottom:4px}
+.con-v{font-size:14px;font-weight:500}
+.con-h{font-size:11px;color:var(--t3);margin-top:4px}
+
+/* ══ Lead capture ══ */
+.lead-box{background:linear-gradient(135deg,var(--card),#0d1f30);border:1px solid var(--ba);border-radius:var(--r);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;max-width:1300px;margin:0 auto 72px;position:relative;z-index:10}
+.lead-left{flex:1;min-width:280px}
+.lead-left h3{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:8px}
+.lead-left p{font-size:14px;color:var(--t2);line-height:1.6}
+.lead-form{display:flex;gap:10px;flex:1;min-width:300px}
+.lead-form input{flex:1;padding:14px 16px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rs);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .3s}
+.lead-form input:focus{border-color:var(--g)}
+.lead-form input::placeholder{color:var(--t3)}
+
+/* ══ FAQ ══ */
+.faq-sec{position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:0 48px 72px}
+.faq-item{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
+.faq-q{padding:18px 22px;cursor:pointer;font-size:14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq-q:hover{background:var(--sf)}
+.faq-icon{transition:transform .3s;font-size:18px;color:var(--t3)}
+.faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:all .4s;font-size:13px;color:var(--t2);line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding:0 22px 18px}
+.faq-item.open .faq-q{color:var(--g)}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--g)}
+
+/* ══ Fixed elements ══ */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,56,.95);backdrop-filter:blur(20px);border-top:1px solid var(--ba);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;z-index:90;transform:translateY(100%);transition:transform .4s}
+.sticky-bar.show{transform:translateY(0)}
+.sb-left{display:flex;align-items:center;gap:16px}
+.sb-txt{font-size:13px;color:var(--t2)}
+.sb-txt strong{color:var(--g)}
+.sb-count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--rd);background:rgba(239,68,68,.1);padding:3px 10px;border-radius:100px;border:1px solid rgba(239,68,68,.2)}
+.btt{position:fixed;bottom:72px;right:28px;width:40px;height:40px;border-radius:50%;background:var(--sf);border:1px solid var(--bd);color:var(--t3);display:none;align-items:center;justify-content:center;cursor:pointer;z-index:89;font-size:16px;transition:all .3s;text-decoration:none}
+.btt.show{display:flex}
+.btt:hover{background:var(--g);color:var(--bg);border-color:var(--g)}
+.notif{position:fixed;bottom:72px;left:28px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;z-index:80;display:none;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,.4);max-width:320px;animation:sil .4s ease-out}
+.notif.show{display:flex}
+@keyframes sil{from{transform:translateX(-100%);opacity:0}to{transform:translateX(0);opacity:1}}
+.notif-dot{width:10px;height:10px;border-radius:50%;background:var(--gr);flex-shrink:0;animation:pulse 2s infinite}
+.notif-text{font-size:12px;color:var(--t2);line-height:1.4}
+.notif-text strong{color:var(--t1)}
+.fab{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;border:none;cursor:pointer;z-index:500}
+.fab:hover{transform:scale(1.1)}
+
+/* ══ Modal ══ */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);z-index:1000;align-items:center;justify-content:center}
+.modal-bg.active{display:flex}
+.modal{background:var(--card);border-radius:20px;border:1px solid var(--bd);width:580px;max-width:95vw;max-height:92vh;overflow-y:auto;animation:mIn .35s ease-out;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+@keyframes mIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal.wide{width:720px}
+.m-head{padding:22px 28px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd)}
+.m-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--g)}
+.m-x{width:32px;height:32px;border-radius:8px;background:var(--sf);border:1px solid var(--bd);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s}
+.m-x:hover{background:var(--rd);color:#fff;border-color:transparent}
+.m-body{padding:22px 28px}
+.m-foot{padding:14px 28px 22px;display:flex;gap:10px;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)}
+
+/* ══ Wizard ══ */
+.wiz-bar{display:flex;align-items:center;margin-bottom:24px}
+.wiz-s{display:flex;align-items:center;gap:7px;flex:1}
+.wiz-s::after{content:'';flex:1;height:2px;background:var(--bd);margin:0 8px}
+.wiz-s:last-child::after{display:none}
+.wiz-s.done::after{background:var(--g)}
+.wiz-n{width:26px;height:26px;border-radius:50%;background:var(--sf);border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--t3);flex-shrink:0;transition:all .3s}
+.wiz-s.active .wiz-n{background:var(--g);border-color:var(--g);color:var(--bg)}
+.wiz-s.done .wiz-n{background:var(--gs);border-color:var(--g);color:var(--g)}
+.wiz-l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);white-space:nowrap}
+.wiz-s.active .wiz-l{color:var(--g)}
+.wiz-s.done .wiz-l{color:var(--t2)}
+.step{display:none}
+.step.active{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ══ Forms ══ */
+.fg{margin-bottom:16px}
+.fl{display:block;font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--t3);margin-bottom:7px;font-weight:700}
+.freq{color:var(--g)}
+.fi,.fs,.ft{width:100%;padding:12px 14px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rs);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .3s}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--gg)}
+.fi.err{border-color:var(--rd)}
+.ferr{font-size:11px;color:var(--rd);margin-top:4px;display:none}
+.ferr.show{display:block}
+.fs{cursor:pointer}
+.fs option{background:var(--card)}
+.ft{resize:vertical;min-height:70px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fdiv{border:none;border-top:1px solid var(--bd);margin:22px 0}
+
+/* ══ Summary card ══ */
+.sum-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:18px}
+.sum-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bd)}
+.sum-cat{padding:3px 8px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff}
+.sum-title{font-size:16px;font-weight:700}
+.sum-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sum-l{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);font-weight:600;margin-bottom:2px}
+.sum-v{font-size:14px;font-weight:500}
+
+/* ══ Confirmation ══ */
+.confirm{text-align:center;padding:20px 0}
+.confirm-icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;color:var(--bg);box-shadow:0 8px 30px rgba(212,168,67,.25);animation:pop .5s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes pop{0%{transform:scale(0)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.confirm-t{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:8px}
+.confirm-s{font-size:14px;color:var(--t2);margin-bottom:24px;line-height:1.6}
+.confirm-ref{display:inline-block;padding:8px 20px;border-radius:var(--rx);background:var(--sf);border:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--g);letter-spacing:2px}
+.confirm-btns{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+
+/* ══ Toast ══ */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--g);border-radius:12px;padding:14px 24px;font-size:13px;z-index:2000;display:none;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.toast.active{display:flex;animation:fadeIn .3s}
+
+/* ══ Footer ══ */
+.footer{position:relative;z-index:10;border-top:1px solid var(--bd);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-l{font-size:12px;color:var(--t3)}
+.footer-l a{color:var(--g);text-decoration:none}
+
+/* ══ Responsive ══ */
+@media(max-width:1100px){.sgrid,.con-grid,.cred-grid{grid-template-columns:repeat(2,1fr)}.fv{width:120px!important;height:80px!important}.fv-bl,.fv-br{display:none}.comp-table{font-size:11px}}
+@media(max-width:900px){.fv{width:90px!important;height:60px!important}.fv-tl{top:15px!important;left:8px!important}.fv-tr{top:10px!important;right:8px!important}.topbar{display:none}.nav{display:none}.mob-btn{display:flex}.hero{padding:48px 20px 36px}.sec,.contact-strip,.faq-sec{padding-left:20px;padding-right:20px}.cgrid,.tgrid,.vgrid{grid-template-columns:1fr}.footer{padding:24px 20px}.wiz-l{display:none}.counter-bar{flex-wrap:wrap;gap:20px;padding:24px 20px}.trust-bar{padding:20px}.lead-box{padding:24px;margin-left:20px;margin-right:20px}.lead-form{flex-direction:column}.sticky-bar{padding:10px 16px}.notif{display:none!important}.gbanner{flex-direction:column;text-align:center;padding:14px 16px}.cred-grid{grid-template-columns:1fr}.cred-card{padding:18px}}
+@media(max-width:600px){.fv{width:70px!important;height:48px!important;border-radius:10px!important}.fv-tl{top:8px!important;left:4px!important}.fv-tr{top:4px!important;right:4px!important}.comp-table{display:block;overflow-x:auto}.header{padding:12px 16px}.brand-logo{width:38px;height:38px;font-size:16px}.brand h1{font-size:18px}.hero h2{font-size:30px}.hero p{font-size:14px}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn{justify-content:center}.sgrid,.con-grid{grid-template-columns:1fr}.fbar{overflow-x:auto;flex-wrap:nowrap;width:100%}.fc{white-space:nowrap;flex-shrink:0}.cc-meta{grid-template-columns:1fr}.cc-foot{flex-direction:column;gap:10px;align-items:stretch}.cc-book{text-align:center;padding:12px}.frow,.sum-grid{grid-template-columns:1fr}.fi,.fs,.ft{font-size:16px;padding:14px}.modal{width:100%;max-height:100vh;height:100vh;border-radius:0}.modal-bg{align-items:flex-end}.footer{flex-direction:column;text-align:center}.counter-bar{gap:10px;padding:18px 12px}.cnt-n{font-size:30px}.cnt-l{font-size:8px}.comp-table th,.comp-table td{padding:8px 10px;font-size:10px}}
+
+/* ══ Scrollbar ══ */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--card)}
+::-webkit-scrollbar-thumb{background:var(--sf);border-radius:4px;border:1px solid var(--bd)}
+::-webkit-scrollbar-thumb:hover{background:var(--g)}
+</style>
+<link rel="preconnect" href="https://img.youtube.com">
+<link rel="preconnect" href="https://docs.google.com">
+</head>
+<body>
+<div class="scroll-prog" id="scrollProg"></div>
+<div class="bg-mesh"></div>
+<!-- TOPBAR -->
+<div class="topbar">
+<div class="topbar-l"><a href="mailto:info@well-experts.org">&#9993; info@well-experts.org</a><a href="tel:+200220826046">&#128222; +20 02 2082 6046</a><span>&#128339; Sun-Thu 9AM-5PM</span></div>
+<div class="topbar-r"><span class="tb tb-i"><img src="iwcf-logo.png" alt="IWCF"> IWCF</span><span class="tb tb-w"><img src="iadc-logo.png" alt="IADC"> WellSharp</span><span class="tb tb-m">IADC Member</span><span class="tb tb-i">IWCF Simulator</span></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+<a class="brand" href="https://www.well-experts.org" target="_blank"><div class="brand-logo">WE</div><div><h1>WELL EXPERTS</h1><span>Adding Real Value</span></div></a>
+<div class="nav"><a class="nl on" href="#courses">Courses</a><a class="nl" href="#credentials">Credentials</a><a class="nl" href="#testimonials">Reviews</a><a class="nl" href="#contact">Contact</a><a class="btn btn-g btn-sm" href="#courses">Enroll Now</a></div>
+<button class="mob-btn" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div>
+<div class="mob-menu" id="mobMenu"><a href="#courses" onclick="toggleMob()">&#128218; Courses</a><a href="#credentials" onclick="toggleMob()">&#127942; Credentials</a><a href="#testimonials" onclick="toggleMob()">&#11088; Reviews</a><a href="#contact" onclick="toggleMob()">&#128222; Contact</a><a href="https://api.whatsapp.com/send?phone=201070787297&text=Hi%2C%20training%20inquiry" target="_blank" style="color:#25D366">&#128172; WhatsApp</a></div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar"><div class="trust-label">Trusted By Industry Leaders</div><div class="trust-track" id="trustTrack"></div></div>
+
+<!-- COUNTER BAR -->
+<div class="counter-bar">
+<div class="cnt"><div class="cnt-n" id="cn1">0</div><div class="cnt-l">Professionals Trained</div></div>
+<div class="cnt"><div class="cnt-n" id="cn2">0</div><div class="cnt-l">Training Sessions</div></div>
+<div class="cnt"><div class="cnt-n" id="cn3">0</div><div class="cnt-l">Countries Served</div></div>
+<div class="cnt"><div class="cnt-n" id="cn4">0</div><div class="cnt-l">Accreditations</div></div>
+<div class="cnt"><div class="cnt-n" id="cn5">0</div><div class="cnt-l">Training Hours</div></div>
+</div>
+
+<!-- HERO -->
+<div class="hero-wrap">
+<div class="fv fv-tl" id="fvTL"></div>
+<div class="fv fv-tr" id="fvTR"></div>
+<div class="fv fv-bl" id="fvBL"></div>
+<div class="fv fv-br" id="fvBR"></div>
+<div class="hero">
+<div class="hero-badge"><span class="dp"></span> Now Enrolling 2026</div>
+<h2>Internationally Accredited <em>Drilling &amp; Well Control</em> Training</h2>
+<p>IWCF &amp; IADC WellSharp certified programs by field veterans. Hands-on RDS-100 simulator sessions — the only simulator replicating the complete drilling operation.</p>
+<div class="hero-ctas">
+<a class="btn btn-g btn-lg" href="#courses">Browse &amp; Book &#8595;</a>
+<a class="btn btn-w btn-lg" href="https://api.whatsapp.com/send?phone=201070787297&text=Hi%2C%20training%20inquiry" target="_blank">&#128172; WhatsApp Us</a>
+<a class="btn btn-o btn-lg" href="#contact">Contact Us</a>
+</div>
+</div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<div class="sec" id="why" style="position:relative">
+<div class="shead"><div><div class="stag">Why Choose Us</div><div class="stitle">What Sets Well Experts Apart</div></div></div>
+<div class="sgrid">
+<div class="scard" style="--sc:var(--bl)"><div class="si">&#127891;</div><div class="st">Dual International Accreditation</div><div class="sd">IWCF + IADC WellSharp certification. Your certificate is recognized globally.</div></div>
+<div class="scard" style="--sc:var(--tl)"><div class="si">&#127918;</div><div class="st">Proprietary RDS-100 Simulator</div><div class="sd">The only simulator replicating the complete drilling operation. Built by Well Experts.</div></div>
+<div class="scard" style="--sc:var(--g)"><div class="si">&#128736;</div><div class="st">Field-Experienced Instructors</div><div class="sd">Shell-accredited engineers with 15-25 years of real drilling operations.</div></div>
+<div class="scard" style="--sc:var(--pu)"><div class="si">&#128187;</div><div class="st">VR &amp; AI-Driven Training</div><div class="sd">WeXplore VR for immersive hazard hunts, AI analytics, digital well planning.</div></div>
+</div>
+</div>
+
+<!-- CREDENTIALS -->
+<div class="sec" id="credentials">
+<div class="shead"><div><div class="stag">Our Credentials</div><div class="stitle">Internationally Verified Excellence</div></div></div>
+<div class="cred-grid">
+<div class="cred-card"><div class="cred-icon"><img src="iwcf-logo.png" alt="IWCF"></div><div class="cred-title">IWCF Primary Accreditation</div><div class="cred-desc">International Well Control Forum accredited training provider for all well control levels.</div><div class="cred-badge" style="background:rgba(45,125,210,.1);color:var(--bl)">Since 2023</div></div>
+<div class="cred-card"><div class="cred-icon"><img src="iadc-logo.png" alt="IADC"></div><div class="cred-title">IADC WellSharp Certified</div><div class="cred-desc">Accredited to deliver IADC WellSharp Well Control Accreditation Program.</div><div class="cred-badge" style="background:rgba(245,158,11,.1);color:var(--or)">Certified 2025</div></div>
+<div class="cred-card"><div class="cred-icon"><img src="iadc-logo.png" alt="IADC"></div><div class="cred-title">IADC Member</div><div class="cred-desc">Member of the International Association of Drilling Contractors since 2025.</div><div class="cred-badge" style="background:rgba(34,197,94,.1);color:var(--gr)">Active Member</div></div>
+<div class="cred-card"><div class="cred-icon">&#128640;</div><div class="cred-title">RDS-100 Simulator</div><div class="cred-desc">First full-scale drilling simulator developed in the MENA region. Proprietary technology.</div><div class="cred-badge" style="background:rgba(212,168,67,.1);color:var(--g)">Patent Pending</div></div>
+<div class="cred-card"><div class="cred-icon">&#127758;</div><div class="cred-title">5-Country Operations</div><div class="cred-desc">Active training centers in Egypt, Oman, UAE, KSA, and Malaysia.</div><div class="cred-badge" style="background:rgba(139,92,246,.1);color:var(--pu)">Global Reach</div></div>
+<div class="cred-card"><div class="cred-icon">&#127891;</div><div class="cred-title">98% Pass Rate</div><div class="cred-desc">IWCF candidates consistently achieve near-perfect pass rates on first attempt.</div><div class="cred-badge" style="background:rgba(34,197,94,.1);color:var(--gr)">Verified 2025</div></div>
+<div class="cred-card"><div class="cred-icon"><img src="iwcf-logo.png" alt="IWCF"></div><div class="cred-title">IWCF Approved Simulator Provider</div><div class="cred-desc">RDS-100 is approved by IWCF for use in accredited well control training programs.</div><div class="cred-badge" style="background:rgba(45,125,210,.1);color:var(--bl)">Approved</div></div>
+</div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sec"><div class="shead"><div><div class="stag">How We Compare</div><div class="stitle">Well Experts vs. Traditional Training</div></div></div>
+<table class="comp-table">
+<tr><th>Feature</th><th class="comp-we">Well Experts</th><th>Traditional Providers</th></tr>
+<tr><td>Full Drilling Simulation</td><td class="comp-we"><span class="ck">&#10003;</span> Complete operation</td><td><span class="cx">&#10007;</span> Well control only</td></tr>
+<tr><td>Simulator Technology</td><td class="comp-we"><span class="ck">&#10003;</span> Proprietary RDS-100</td><td><span class="cx">&#10007;</span> Generic/third-party</td></tr>
+<tr><td>VR Training (WeXplore)</td><td class="comp-we"><span class="ck">&#10003;</span> Included</td><td><span class="cx">&#10007;</span> Not available</td></tr>
+<tr><td>IWCF + IADC Dual Accreditation</td><td class="comp-we"><span class="ck">&#10003;</span> Both</td><td>Usually one</td></tr>
+<tr><td>On-Site Deployment</td><td class="comp-we"><span class="ck">&#10003;</span> Portable simulator</td><td>Classroom only</td></tr>
+<tr><td>Instructor Experience</td><td class="comp-we">15-25 years field</td><td>Varies</td></tr>
+<tr><td>Class Size</td><td class="comp-we">6-12 max</td><td>Up to 24</td></tr>
+<tr><td>Real-Time Analytics</td><td class="comp-we"><span class="ck">&#10003;</span> AI-powered</td><td><span class="cx">&#10007;</span> Manual assessment</td></tr>
+</table></div>
+
+<!-- VIDEO SHOWCASE -->
+<div class="sec" id="videos"><div class="shead"><div><div class="stag">See It In Action</div><div class="stitle">Experience Training First-Hand</div></div><a class="btn btn-gh btn-sm" href="https://www.youtube.com/@WellExperts" target="_blank" style="color:var(--rd)">&#9654; YouTube</a></div><div class="vgrid" id="vGrid"></div></div>
+
+<!-- COURSES -->
+<div class="sec" id="courses"><div class="shead"><div><div class="stag">Training Calendar</div><div class="stitle">Upcoming Sessions</div><div class="ssub">Live from our scheduling system — updated every 60 seconds</div></div><div class="fbar" id="filterBar"></div></div>
+<div class="gbanner"><div class="gbanner-t">&#128101; <strong>Group Booking (5+ seats)?</strong> Contact us for corporate rates and customized scheduling.</div><a class="gbanner-a" href="https://api.whatsapp.com/send?phone=201070787297&text=Hi%2C%20requesting%20group%20booking%20rates" target="_blank">Get Corporate Rate &#8594;</a></div>
+<div class="cgrid" id="coursesGrid"></div></div>
+
+<!-- TESTIMONIALS -->
+<div class="sec" id="testimonials"><div class="shead"><div><div class="stag">Trainee Reviews</div><div class="stitle">What Our Graduates Say</div></div></div><div class="tgrid" id="tGrid"></div></div>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="contact"><div style="margin-bottom:28px"><div class="stag">Get In Touch</div><div class="stitle">Reach Us Any Way You Prefer</div></div>
+<div class="con-grid">
+<a class="con-card" href="tel:+200220826046"><div class="con-i ci-p">&#128222;</div><div class="con-l">Call</div><div class="con-v">+20 02 2082 6046</div><div class="con-h">Sun-Thu 9AM-5PM</div></a>
+<a class="con-card" href="mailto:info@well-experts.org"><div class="con-i ci-e">&#9993;</div><div class="con-l">Email</div><div class="con-v">info@well-experts.org</div><div class="con-h">Reply within 24h</div></a>
+<a class="con-card" href="https://api.whatsapp.com/send?phone=201070787297&text=Hi%2C%20training%20inquiry" target="_blank"><div class="con-i ci-w">&#128172;</div><div class="con-l">WhatsApp</div><div class="con-v">Chat Now</div><div class="con-h">Instant response</div></a>
+<a class="con-card" href="https://www.linkedin.com/company/well-experts" target="_blank"><div class="con-i ci-l">in</div><div class="con-l">LinkedIn</div><div class="con-v">@well-experts</div><div class="con-h">News &amp; updates</div></a>
+</div></div>
+
+<!-- LEAD CAPTURE -->
+<div class="lead-box" style="margin-left:48px;margin-right:48px"><div class="lead-left"><h3>&#128276; Get Notified About New Courses</h3><p>Be the first to know when new sessions open. Early bird registrants get priority booking.</p></div><div class="lead-form"><input type="email" id="leadEmail" placeholder="Enter your email address"><button class="btn btn-g" onclick="captureLead()">Notify Me</button></div></div>
+
+<!-- FAQ -->
+<div class="faq-sec"><div class="shead"><div><div class="stag">Common Questions</div><div class="stitle">FAQ</div></div></div><div id="faqGrid"></div></div>
+
+<!-- DETAIL MODAL -->
+<div class="modal-bg" id="detailModal"><div class="modal wide"><div class="m-head"><div class="m-title" id="dmTitle">Course Details</div><button class="m-x" onclick="closeDetail()">&times;</button></div><div class="m-body" id="dmBody"></div><div class="m-foot"><button class="btn btn-gh btn-sm" onclick="closeDetail()">Close</button><button class="btn btn-g" id="dmBook">Book This Course &#8594;</button></div></div></div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-bg" id="bookModal"><div class="modal"><div class="m-head"><div class="m-title" id="bmTitle">Book Training</div><button class="m-x" onclick="closeBook()">&times;</button></div><div class="m-body">
+<div class="wiz-bar"><div class="wiz-s active" data-s="1"><div class="wiz-n">1</div><span class="wiz-l">Review</span></div><div class="wiz-s" data-s="2"><div class="wiz-n">2</div><span class="wiz-l">Details</span></div><div class="wiz-s" data-s="3"><div class="wiz-n">3</div><span class="wiz-l">Confirm</span></div></div>
+<div class="step active" id="s1"><div class="sum-card" id="s1Sum"></div><div class="fg"><label class="fl">Participants <span class="freq">*</span></label><input class="fi" type="number" id="bPax" value="1" min="1" max="20"></div><div class="fg"><label class="fl">Language</label><select class="fs" id="bLang"><option>English</option><option>Arabic</option><option>Both</option></select></div></div>
+<div class="step" id="s2"><div style="font-size:15px;font-weight:700;margin-bottom:18px">Your Information</div><div class="frow"><div class="fg"><label class="fl">Full Name <span class="freq">*</span></label><input class="fi" id="bName"><div class="ferr" id="eN">Required</div></div><div class="fg"><label class="fl">Job Title <span class="freq">*</span></label><input class="fi" id="bTitle"><div class="ferr" id="eT">Required</div></div></div><div class="fg"><label class="fl">Company <span class="freq">*</span></label><input class="fi" id="bCo"><div class="ferr" id="eC">Required</div></div><div class="frow"><div class="fg"><label class="fl">Email <span class="freq">*</span></label><input class="fi" type="email" id="bEmail"><div class="ferr" id="eE">Valid email</div></div><div class="fg"><label class="fl">Phone <span class="freq">*</span></label><input class="fi" type="tel" id="bPhone"><div class="ferr" id="eP">Required</div></div></div><div class="frow"><div class="fg"><label class="fl">Country</label><select class="fs" id="bCountry"><option>Oman</option><option>Egypt</option><option>UAE</option><option>Saudi Arabia</option><option>Kuwait</option><option>Qatar</option><option>Other</option></select></div><div class="fg"><label class="fl">Experience</label><select class="fs" id="bExp"><option>0-2 yrs</option><option>3-5 yrs</option><option>6-10 yrs</option><option>11-15 yrs</option><option>16+ yrs</option></select></div></div><hr class="fdiv"><div class="fg"><label class="fl">Requirements</label><textarea class="ft" id="bNotes" placeholder="Dietary, accessibility..."></textarea></div><div style="display:flex;align-items:flex-start;gap:10px"><input type="checkbox" id="bTerms" style="margin-top:3px;accent-color:var(--g);cursor:pointer"><label for="bTerms" style="font-size:12px;color:var(--t2);cursor:pointer;line-height:1.5">I agree to <a href="https://www.well-experts.org/terms" target="_blank" style="color:var(--g)">Terms</a></label></div><div class="ferr" id="eTm" style="margin-left:26px">Required</div></div>
+<div class="step" id="s3"><div class="confirm" id="confirmView" style="display:none"><div class="confirm-icon">&#10003;</div><div class="confirm-t">Booking Sent!</div><div class="confirm-s">Sent via WhatsApp to <strong style="color:#25D366">Well Experts</strong>. Confirmation within hours.</div><div class="confirm-ref" id="cRef">WE-2026-XXXX</div><div class="confirm-btns"><a class="btn btn-w btn-sm" href="https://api.whatsapp.com/send?phone=201070787297" target="_blank">&#128172; Follow up</a><a class="btn btn-gh btn-sm" href="tel:+200220826046">&#128222; Call</a></div></div></div>
+</div><div class="m-foot"><div><button class="btn btn-gh btn-sm" id="bBack" onclick="wizPrev()" style="display:none">&#8592; Back</button></div><div style="display:flex;gap:10px"><button class="btn btn-gh btn-sm" onclick="closeBook()">Cancel</button><button class="btn btn-g" id="bNext" onclick="wizNext()">Continue &#8594;</button></div></div></div></div>
+
+<!-- FIXED ELEMENTS -->
+<div class="sticky-bar" id="stickyBar"><div class="sb-left"><span class="sb-count" id="sbCount">-</span><div class="sb-txt"><strong>Limited availability</strong> on upcoming sessions</div></div><a class="btn btn-g btn-sm" href="#courses">View &amp; Book &#8594;</a></div>
+<a class="btt" id="btt" href="#">&#8593;</a>
+<div class="notif" id="notif"><div class="notif-dot"></div><div class="notif-text" id="notifTxt"></div></div>
+<a class="fab" href="https://api.whatsapp.com/send?phone=201070787297&text=Hi%2C%20training%20inquiry" target="_blank">&#128172;</a>
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
+<div class="footer"><div class="footer-l">&copy; 2026 <a href="https://www.well-experts.org" target="_blank">Well Experts</a> &bull; <a href="mailto:info@well-experts.org">info@well-experts.org</a></div><div style="display:flex;gap:8px"><span class="tb tb-i"><img src="iwcf-logo.png" alt="" style="height:14px;object-fit:contain;border-radius:2px"> IWCF</span><span class="tb tb-w"><img src="iadc-logo.png" alt="" style="height:14px;object-fit:contain;border-radius:2px"> WellSharp</span><span class="tb tb-m">IADC</span></div></div>
+<script>
+// ══════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════
+var SHEET_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vStvT6kbM2Ix4eitP2OBkqt-3yrIGVvSyn5sR1iIB33aAFqylb0u33ShC9tUsbYBRWb7w5IUUnADQ37/pub?output=csv';
+var SHEET_COURSES = SHEET_BASE + '&gid=1354458299';
+var SHEET_REVIEWS = SHEET_BASE + '&gid=419613626';
+var SHEET_CLIENTS = SHEET_BASE + '&gid=52640651';
+var SHEET_VIDEOS  = SHEET_BASE + '&gid=1651683229';
+var SHEET_FAQ     = SHEET_BASE + '&gid=502129458';
+var WA = 'https://api.whatsapp.com/send?phone=201070787297';
+var C = {iwcf:{l:'IWCF Accredited',c:'#2d7dd2'},wellsharp:{l:'IADC WellSharp',c:'#f59e0b'},drilling:{l:'Drilling Programs',c:'#ef4444'},simulator:{l:'Simulator (RDS-100)',c:'#10b981'},digital:{l:'Digitalization',c:'#8b5cf6'}};
+
+// ══════════════════════════════════════════
+// FALLBACK DATA
+// ══════════════════════════════════════════
+var FB_REVIEWS=[{name:'Hesham Gaafar',role:'Drilling Engineer',quote:'Most simulators just simulate well control, but this one simulates the whole drilling operation. A game changer.',linkedin:'https://www.linkedin.com/in/hesham-gaafar/',initials:'HG'},{name:'Seif Eldin Ahmed',role:'Drilling Supervisor',quote:'Perfect instructor with extensive field experience. Simulator is one of a kind.',linkedin:'',initials:'SA'},{name:'Amr Tarek',role:'Drilling & Workover Supervisor',quote:'The instructor was very helpful. Simulator gave realistic responses.',linkedin:'',initials:'AT'},{name:'Ahmed Salah Hafez',role:'Sr. Student, Suez University',quote:'Real cases from field experience were the most useful part.',linkedin:'',initials:'AH'},{name:'Ahmed Ismail',role:'Well Intervention Engineer',quote:'Real life situations on the simulator make all the difference.',linkedin:'',initials:'AI'},{name:'Moaz Ali Abdelhamid',role:'Sr. Student, Suez University',quote:'We gained a lot from the instructors experience.',linkedin:'',initials:'MA'}];
+var FB_CLIENTS=[{name:'CHEIRON PETROLEUM',logo:''},{name:'RYBOA HIMA',logo:''},{name:'BAPETCO',logo:''},{name:'SUEZ UNIVERSITY',logo:''},{name:'IWCF',logo:'iwcf-logo.png'},{name:'IADC',logo:'iadc-logo.png'}];
+var FB_VIDEOS=[{youtube_id:'WpYG5iX21cg',title:'RDS-100 Full Scale Simulator',description:'Our proprietary Reality Drilling Simulator.',type:'showcase'},{youtube_id:'oHWglInvaVs',title:'Simulator Training Highlights',description:'Real trainees on the RDS-100.',type:'showcase'},{youtube_id:'46x2_1PTgvg',title:'Drilling Operations Training',description:'Classroom to simulator practice.',type:'showcase'},{youtube_id:'WpYG5iX21cg',type:'float-tl'},{youtube_id:'-wawUEQVD0c',type:'float-tr'},{youtube_id:'hmVBOZ0CPNE',type:'float-bl'},{youtube_id:'aRnOKC3TBK8',type:'float-br'}];
+var FB_FAQ=[{question:'Are your certifications internationally recognized?',answer:'Yes. IWCF + IADC WellSharp certified. Recognized worldwide by Shell, BP, TotalEnergies, ADNOC, PDO, Saudi Aramco.'},{question:'What prerequisites do I need?',answer:'Varies by level. IWCF L3: basic drilling. L4: supervisory experience. Contact us to choose the right level.'},{question:'Can you deliver training at our facility?',answer:'Yes. RDS-100 is portable. We operate in Egypt, Oman, UAE, KSA, Malaysia. WhatsApp us for on-site quotes.'},{question:'What is your cancellation policy?',answer:'Free cancellation 14+ days before. Under 14 days may incur partial fee. Substitutions always free.'},{question:'How is the RDS-100 different?',answer:'Replicates entire drilling operation, not just well control. First full-scale simulator in MENA.'},{question:'Do you offer group rates?',answer:'Yes. 5+ seats get corporate rates, dedicated scheduling, customized content. Contact via WhatsApp.'},{question:'What does pricing include?',answer:'Materials, simulator access, exam fees, certification, refreshments. Accommodation not included but can be arranged.'}];
+var FB=[{id:1,co:'IWCF Level 4 (Surface)',ca:'iwcf',s:'2026-04-27',e:'2026-05-01',lo:'Cairo, Egypt',cp:12,en:7,ins:'Eng. Tarek Salem',price:'Contact Us',pass:'98%',obj:'Master advanced well control for surface stack',aud:'Drilling supervisors, toolpushers, rig managers',prereq:'IWCF Level 3 or equivalent',cert:'IWCF Level 4 Surface Certificate (2yr)'},{id:2,co:'DWOS - Drill Well on Simulator',ca:'simulator',s:'2026-05-03',e:'2026-05-07',lo:'Cairo, Egypt',cp:8,en:5,ins:'Eng. Ahmed Hassan',price:'Contact Us',pass:'100%',obj:'Complete full drilling operation on RDS-100',aud:'Drillers, assistant drillers, engineers',prereq:'Basic drilling knowledge',cert:'Well Experts DWOS Certificate'},{id:3,co:'Well Engineering Level 1',ca:'drilling',s:'2026-05-10',e:'2026-05-14',lo:'Muscat, Oman',cp:15,en:3,ins:'',price:'Contact Us',pass:'95%',obj:'Well engineering fundamentals',aud:'Graduate engineers, junior drilling engineers',prereq:'Engineering degree',cert:'Well Experts Certificate'},{id:4,co:'WellSharp Supervisory',ca:'wellsharp',s:'2026-05-17',e:'2026-05-21',lo:'Cairo, Egypt',cp:12,en:9,ins:'',price:'Contact Us',pass:'96%',obj:'Supervisory well control per IADC',aud:'Drilling supervisors, company men',prereq:'Supervisory experience',cert:'IADC WellSharp Supervisory Certificate'},{id:5,co:'IWCF Level 3 (Surface)',ca:'iwcf',s:'2026-05-24',e:'2026-05-28',lo:'Abu Dhabi, UAE',cp:12,en:4,ins:'',price:'Contact Us',pass:'97%',obj:'Well control principles for surface ops',aud:'Drillers, derrickmen, crew',prereq:'Basic rig knowledge',cert:'IWCF Level 3 Surface Certificate (2yr)'},{id:6,co:'KWOS - Kill Well on Simulator',ca:'simulator',s:'2026-06-07',e:'2026-06-11',lo:'Cairo, Egypt',cp:8,en:2,ins:'',price:'Contact Us',pass:'100%',obj:'Well kill procedures on simulator',aud:'All drilling personnel',prereq:'Basic well control',cert:'Well Experts KWOS Certificate'},{id:7,co:'Advanced Well Control',ca:'drilling',s:'2026-06-14',e:'2026-06-18',lo:'Muscat, Oman',cp:10,en:6,ins:'',price:'Contact Us',pass:'94%',obj:'Complex well control including HPHT',aud:'Experienced supervisors',prereq:'IWCF L4 or equivalent',cert:'Well Experts Advanced Certificate'},{id:8,co:'Drilling Data Analytics',ca:'digital',s:'2026-06-21',e:'2026-06-25',lo:'Cairo, Egypt',cp:20,en:8,ins:'',price:'Contact Us',pass:'',obj:'Data analytics for drilling optimization',aud:'Engineers, data analysts',prereq:'Basic data literacy',cert:'Well Experts Digital Certificate'},{id:9,co:'IWCF Level 4 (Subsea)',ca:'iwcf',s:'2026-07-05',e:'2026-07-09',lo:'Cairo, Egypt',cp:12,en:1,ins:'Eng. Tarek Salem',price:'Contact Us',pass:'97%',obj:'Well control for subsea BOP',aud:'Subsea drilling supervisors',prereq:'IWCF L3 or equivalent',cert:'IWCF Level 4 Subsea Certificate (2yr)'},{id:10,co:'Supervisor Prep Track',ca:'drilling',s:'2026-07-12',e:'2026-07-23',lo:'Cairo, Egypt',cp:10,en:4,ins:'',price:'Contact Us',pass:'',obj:'Comprehensive supervisor preparation',aud:'Senior drillers, toolpushers',prereq:'5+ years experience',cert:'Supervisor Readiness Certificate'}];
+
+// ══════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════
+var S=FB.slice(),reviews=FB_REVIEWS.slice(),clients=FB_CLIENTS.slice(),vidData=FB_VIDEOS.slice(),faqs=FB_FAQ.slice(),af='all',bs=null,wz=1;
+
+// ══════════════════════════════════════════
+// CSV PARSER
+// ══════════════════════════════════════════
+function csvParse(t){var lines=t.split('\n'),result=[];if(lines.length<2)return result;var hv=[],hcu='',hq=false;for(var j=0;j<lines[0].length;j++){var ch=lines[0][j];if(ch==='"')hq=!hq;else if(ch===','&&!hq){hv.push(hcu.trim().replace(/^"|"$/g,''));hcu=''}else hcu+=ch}hv.push(hcu.trim().replace(/^"|"$/g,''));for(var i=1;i<lines.length;i++){var ln=lines[i].trim();if(!ln)continue;var vals=[],cu='',q=false;for(var j=0;j<ln.length;j++){var c=ln[j];if(c==='"')q=!q;else if(c===','&&!q){vals.push(cu.trim().replace(/^"|"$/g,''));cu=''}else cu+=c}vals.push(cu.trim().replace(/^"|"$/g,''));var obj={};for(var k=0;k<hv.length;k++)obj[hv[k]]=vals[k]||'';result.push(obj)}return result}
+function fetchTab(url,cb){fetch(url).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){var rows=csvParse(t);if(rows.length>0)cb(rows)}).catch(function(){})}
+
+// ══════════════════════════════════════════
+// LOAD FROM SHEET (smart merge - never downgrade)
+// ══════════════════════════════════════════
+function loadAll(){
+  fetchTab(SHEET_COURSES,function(rows){var p=[];for(var i=0;i<rows.length;i++){var x=rows[i];if(!x.course||!x.start)continue;p.push({id:parseInt(x.id)||i+1,co:x.course,ca:(x.cat||'drilling').trim(),s:(x.start||'').trim(),e:(x.end||'').trim(),lo:x.loc||'',cp:parseInt(x.cap)||12,en:parseInt(x.enr)||0,ins:x.inst||'',price:x.price||'Contact Us',pass:x.pass_rate||'',obj:x.objectives||'',aud:x.audience||'',prereq:x.prereqs||'',cert:x.cert||''})}if(p.length){S=p;renderFilters();renderCourses();updateSeatCount()}});
+  fetchTab(SHEET_REVIEWS,function(rows){var r=[];for(var i=0;i<rows.length;i++){var x=rows[i];if(!x.name||!x.quote)continue;r.push({name:x.name,role:x.role||'',quote:x.quote,linkedin:x.linkedin||'',initials:x.initials||x.name.split(' ').map(function(w){return w[0]}).join('').substring(0,2).toUpperCase()})}if(r.length){reviews=r;renderReviews()}});
+  fetchTab(SHEET_CLIENTS,function(rows){var cl=[];for(var i=0;i<rows.length;i++){if(rows[i].name)cl.push({name:rows[i].name,logo:rows[i].logo||''})}if(cl.length>0){var hasNew=false;for(var z=0;z<cl.length;z++){if(cl[z].logo)hasNew=true}if(!hasNew){for(var z=0;z<cl.length;z++){for(var q=0;q<FB_CLIENTS.length;q++){if(cl[z].name.toUpperCase()===FB_CLIENTS[q].name.toUpperCase()&&FB_CLIENTS[q].logo){cl[z].logo=FB_CLIENTS[q].logo}}}}clients=cl;renderClients()}});
+  fetchTab(SHEET_VIDEOS,function(rows){var v=[];for(var i=0;i<rows.length;i++){var x=rows[i];if(!x.youtube_id)continue;v.push({youtube_id:x.youtube_id,title:x.title||'',description:x.description||'',type:x.type||'showcase'})}if(v.length){vidData=v;renderShowcase();renderFloats()}});
+  fetchTab(SHEET_FAQ,function(rows){var f=[];for(var i=0;i<rows.length;i++){var x=rows[i];if(!x.question||!x.answer)continue;f.push({question:x.question,answer:x.answer})}if(f.length){faqs=f;renderFAQ()}});
+}
+
+// ══════════════════════════════════════════
+// RENDER: Clients (Trust Bar) - NO GLITCH
+// ══════════════════════════════════════════
+function renderClients(){
+  var el=document.getElementById('trustTrack');
+  if(!el)return;
+  var h='';
+  for(var r=0;r<2;r++){
+    for(var i=0;i<clients.length;i++){
+      var lg=clients[i].logo?'<img src="'+clients[i].logo+'" alt="'+clients[i].name+'">':'';
+      h+='<span class="trust-logo">'+lg+clients[i].name.toUpperCase()+'</span>';
+    }
+  }
+  el.innerHTML=h;
+}
+
+// ══════════════════════════════════════════
+// RENDER: Reviews
+// ══════════════════════════════════════════
+function renderReviews(){var g=document.getElementById('tGrid');if(!g)return;g.innerHTML='';for(var i=0;i<reviews.length;i++){var t=reviews[i],d=document.createElement('div');d.className='tc';d.innerHTML='<div class="tq">'+t.quote+'</div><div class="ta"><div class="tav">'+t.initials+'</div><div><div class="tn">'+t.name+'</div><div class="tr">'+t.role+'</div>'+(t.linkedin?'<a class="tli" href="'+t.linkedin+'" target="_blank">&#128279; LinkedIn</a>':'')+'</div></div>';g.appendChild(d)}}
+
+// ══════════════════════════════════════════
+// RENDER: Video Showcase (thumbnail + click to play)
+// ══════════════════════════════════════════
+function renderShowcase(){var g=document.getElementById('vGrid');if(!g)return;g.innerHTML='';for(var i=0;i<vidData.length;i++){var v=vidData[i];if(v.type!=='showcase')continue;var d=document.createElement('div');d.className='vcard';var thumb=document.createElement('div');thumb.className='vthumb';thumb.style.cssText='position:relative;cursor:pointer';thumb.dataset.vid=v.youtube_id;var img=document.createElement('img');img.src='https://img.youtube.com/vi/'+v.youtube_id+'/hqdefault.jpg';img.style.cssText='width:100%;height:100%;object-fit:cover';thumb.appendChild(img);var play=document.createElement('div');play.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3)';play.innerHTML='<div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:22px solid #333;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:4px"></div></div>';thumb.appendChild(play);thumb.addEventListener('click',function(){var vid=this.dataset.vid;var ifr=document.createElement('iframe');ifr.src='https://www.youtube.com/embed/'+vid+'?rel=0&autoplay=1';ifr.allow='autoplay';ifr.allowFullscreen=true;ifr.style.cssText='width:100%;height:100%;border:none';this.innerHTML='';this.appendChild(ifr)});d.appendChild(thumb);var info=document.createElement('div');info.className='vinfo';info.innerHTML='<div class="vtitle">'+v.title+'</div><div class="vdesc">'+(v.description||'')+'</div>';d.appendChild(info);g.appendChild(d)}}
+
+// ══════════════════════════════════════════
+// RENDER: Floating Videos (thumbnails only - NO iframes)
+// ══════════════════════════════════════════
+function renderFloats(){
+  var map={'float-tl':'fvTL','float-tr':'fvTR','float-bl':'fvBL','float-br':'fvBR'};
+  for(var i=0;i<vidData.length;i++){
+    var v=vidData[i],elId=map[v.type];
+    if(!elId)continue;
+    var el=document.getElementById(elId);
+    if(el){
+      el.innerHTML='<iframe src="https://www.youtube.com/embed/'+v.youtube_id+'?autoplay=1&mute=1&loop=1&playlist='+v.youtube_id+'&controls=0&rel=0&playsinline=1" allow="autoplay" style="width:100%;height:100%;border:none"></iframe>';
+    }
+  }
+}
+
+// ══════════════════════════════════════════
+// RENDER: FAQ
+// ══════════════════════════════════════════
+function renderFAQ(){var g=document.getElementById('faqGrid');if(!g)return;g.innerHTML='';for(var i=0;i<faqs.length;i++){var f=faqs[i],d=document.createElement('div');d.className='faq-item';d.onclick=function(){this.classList.toggle('open')};d.innerHTML='<div class="faq-q">'+f.question+'<span class="faq-icon">+</span></div><div class="faq-a">'+f.answer+'</div>';g.appendChild(d)}}
+
+// ══════════════════════════════════════════
+// RENDER: Filters & Courses
+// ══════════════════════════════════════════
+function renderFilters(){var b=document.getElementById('filterBar');if(!b)return;b.innerHTML='';var a=document.createElement('div');a.className='fc'+(af==='all'?' on':'');a.textContent='All';a.onclick=function(){af='all';renderFilters();renderCourses()};b.appendChild(a);var ks=Object.keys(C);for(var i=0;i<ks.length;i++){var k=ks[i],ct=C[k],n=0;for(var j=0;j<S.length;j++)if(S[j].ca===k)n++;if(!n)continue;var ch=document.createElement('div');ch.className='fc'+(af===k?' onc':'');ch.style.setProperty('--cc',ct.c);ch.innerHTML='<div class="fdot" style="background:'+ct.c+'"></div>'+ct.l;(function(key){ch.onclick=function(){af=key;renderFilters();renderCourses()}})(k);b.appendChild(ch)}}
+
+function renderCourses(){var g=document.getElementById('coursesGrid');if(!g)return;g.innerHTML='';var td=new Date().toISOString().split('T')[0],f=[];for(var i=0;i<S.length;i++){if(S[i].e>=td&&(af==='all'||S[i].ca===af))f.push(S[i])}f.sort(function(a,b){return a.s.localeCompare(b.s)});if(!f.length){g.innerHTML='<div class="nores"><h3>No Sessions</h3><p><a href="'+WA+'&text=Hi%2C%20custom%20training" target="_blank" style="color:var(--g)">WhatsApp us</a></p></div>';return}for(var i=0;i<f.length;i++){var s=f[i],c2=C[s.ca]||C.drilling,av=s.cp-(s.en||0),pc=(s.en||0)/s.cp;var stxt,sdot;if(av<=0){stxt='Full';sdot='dot-fu'}else if(pc>=.7){stxt=av+' left';sdot='dot-lo'}else{stxt=av+' avail';sdot='dot-ok'}var dy=Math.round((new Date(s.e)-new Date(s.s))/864e5)+1,du=Math.round((new Date(s.s)-new Date())/864e5);var badge='';if(av>0&&av<=3)badge='<div class="ub ub-hot">&#128293; Only '+av+' seats</div>';else if(av>0&&du<=14&&du>0)badge='<div class="ub ub-soon">&#9200; Starts in '+du+'d</div>';else if(av>0&&s.en===0)badge='<div class="ub ub-new">&#10024; New</div>';var prH=(s.price&&s.price!=='Contact Us')?'<div class="cc-price">'+s.price+'<span class="cc-price-note">per person</span></div>':'<div class="cc-price" style="font-size:16px;color:var(--t2)">Request Quote<span class="cc-price-note">&#128172; WhatsApp</span></div>';var paH=s.pass?'<div class="cc-pass">&#9989; '+s.pass+' pass rate</div>':'';var d=document.createElement('div');d.className='cc';d.style.setProperty('--ccc',c2.c);d.innerHTML='<div class="cc-accent"></div><div class="cc-body"><div class="cc-top"><div class="cc-cat">'+c2.l+'</div><div class="cc-seats"><div class="dot '+sdot+'"></div>'+stxt+'</div></div>'+badge+prH+paH+'<div class="cc-title">'+s.co+'</div><div class="cc-meta"><div class="mi"><div class="mii">&#128197;</div><div><div class="mil">Date</div><div class="miv">'+fmShort(s.s)+' - '+fmShort(s.e)+'</div></div></div><div class="mi"><div class="mii">&#9202;</div><div><div class="mil">Duration</div><div class="miv">'+dy+'d</div></div></div><div class="mi"><div class="mii">&#128205;</div><div><div class="mil">Location</div><div class="miv">'+s.lo+'</div></div></div><div class="mi"><div class="mii">&#128101;</div><div><div class="mil">Enrolled</div><div class="miv">'+(s.en||0)+'/'+s.cp+'</div></div></div></div></div><div class="cc-foot"><div style="display:flex;gap:8px;align-items:center"><div class="cc-inst">'+(s.ins?'&#128100; '+s.ins:'')+'</div><button class="cc-det" onclick="event.stopPropagation();openDetail('+s.id+')">Details</button></div><button class="cc-book '+(av<=0?'full':'')+'" onclick="event.stopPropagation();'+(av>0?'openBook('+s.id+')':'')+'">'+(av<=0?'Full':'Book &#8594;')+'</button></div>';g.appendChild(d)}}
+
+// ══════════════════════════════════════════
+// DETAIL MODAL
+// ══════════════════════════════════════════
+function openDetail(id){var s=null;for(var i=0;i<S.length;i++)if(S[i].id===id){s=S[i];break}if(!s)return;var c2=C[s.ca]||C.drilling,av=s.cp-(s.en||0),dy=Math.round((new Date(s.e)-new Date(s.s))/864e5)+1;document.getElementById('dmTitle').textContent=s.co;var h='<div class="sum-card"><div class="sum-head"><div class="sum-cat" style="background:'+c2.c+'">'+c2.l+'</div><div class="sum-title">'+s.co+'</div></div><div class="sum-grid"><div><div class="sum-l">Dates</div><div class="sum-v">'+fmLong(s.s)+' - '+fmLong(s.e)+'</div></div><div><div class="sum-l">Duration</div><div class="sum-v">'+dy+' days</div></div><div><div class="sum-l">Location</div><div class="sum-v">'+s.lo+'</div></div><div><div class="sum-l">Available</div><div class="sum-v" style="color:'+(av<=3?'var(--or)':'var(--gr)')+'">'+av+'/'+s.cp+'</div></div>'+(s.ins?'<div><div class="sum-l">Instructor</div><div class="sum-v">'+s.ins+'</div></div>':'')+'<div><div class="sum-l">Price</div><div class="sum-v" style="color:var(--g)">'+(s.price||'Contact Us')+'</div></div></div></div>';if(s.obj)h+='<div class="det-sec"><h4>Learning Objectives</h4><p style="font-size:13px;color:var(--t2);line-height:1.7">'+s.obj+'</p></div>';if(s.aud){h+='<div class="det-sec"><h4>Who Should Attend</h4><div class="det-tags">';var au=s.aud.split(',');for(var j=0;j<au.length;j++)h+='<span class="det-tag">&#128100; '+au[j].trim()+'</span>';h+='</div></div>'}if(s.prereq)h+='<div class="det-sec"><h4>Prerequisites</h4><p style="font-size:13px;color:var(--t2);line-height:1.7">'+s.prereq+'</p></div>';if(s.pass)h+='<div class="det-sec"><h4>Success Rate</h4><p style="font-size:13px;color:var(--gr);font-weight:700">&#9989; '+s.pass+' pass first attempt</p></div>';if(s.cert)h+='<div class="det-cert"><div class="det-cert-t">&#127942; '+s.cert+'</div><div class="det-cert-d">Internationally recognized</div></div>';document.getElementById('dmBody').innerHTML=h;document.getElementById('dmBook').onclick=function(){closeDetail();if(av>0)openBook(id)};document.getElementById('detailModal').classList.add('active')}
+function closeDetail(){document.getElementById('detailModal').classList.remove('active')}
+
+// ══════════════════════════════════════════
+// BOOKING WIZARD
+// ══════════════════════════════════════════
+function openBook(id){bs=null;for(var i=0;i<S.length;i++)if(S[i].id===id){bs=S[i];break}if(!bs)return;wz=1;document.getElementById('bookModal').classList.add('active');document.getElementById('bmTitle').textContent='Book: '+bs.co;document.getElementById('confirmView').style.display='none';clearErrors();updateWiz();renderS1()}
+function closeBook(){document.getElementById('bookModal').classList.remove('active');bs=null;wz=1}
+function updateWiz(){var st=document.querySelectorAll('.wiz-s');for(var i=0;i<st.length;i++){var n=parseInt(st[i].dataset.s);st[i].classList.remove('active','done');if(n===wz)st[i].classList.add('active');else if(n<wz)st[i].classList.add('done')}var p=document.querySelectorAll('.step');for(var i=0;i<p.length;i++)p[i].classList.toggle('active',i+1===wz);document.getElementById('bBack').style.display=(wz>1&&wz<3)?'inline-flex':'none';var nb=document.getElementById('bNext');if(wz===2)nb.innerHTML='Submit &#10003;';else if(wz===3){nb.innerHTML='Close';nb.onclick=closeBook}else nb.innerHTML='Continue &#8594;'}
+function renderS1(){var s=bs,c2=C[s.ca]||C.drilling,av=s.cp-(s.en||0),dy=Math.round((new Date(s.e)-new Date(s.s))/864e5)+1;document.getElementById('s1Sum').innerHTML='<div class="sum-head"><div class="sum-cat" style="background:'+c2.c+'">'+c2.l+'</div><div class="sum-title">'+s.co+'</div></div><div class="sum-grid"><div><div class="sum-l">Dates</div><div class="sum-v">'+fmLong(s.s)+' - '+fmLong(s.e)+'</div></div><div><div class="sum-l">Duration</div><div class="sum-v">'+dy+'d</div></div><div><div class="sum-l">Location</div><div class="sum-v">'+s.lo+'</div></div><div><div class="sum-l">Available</div><div class="sum-v" style="color:'+(av<=3?'var(--or)':'var(--gr)')+'">'+av+'/'+s.cp+'</div></div>'+(s.ins?'<div><div class="sum-l">Instructor</div><div class="sum-v">'+s.ins+'</div></div>':'')+'<div><div class="sum-l">Price</div><div class="sum-v" style="color:var(--g)">'+(s.price||'Contact Us')+'</div></div></div>';document.getElementById('bPax').max=av;document.getElementById('bPax').value=1}
+function wizNext(){if(wz===1){wz=2;updateWiz()}else if(wz===2){if(valS2())submitWA()}else closeBook()}
+function wizPrev(){if(wz>1){wz--;updateWiz()}}
+function valS2(){clearErrors();var ok=true,ch=[['bName','eN'],['bTitle','eT'],['bCo','eC'],['bPhone','eP']];for(var i=0;i<ch.length;i++){var inp=document.getElementById(ch[i][0]);if(inp.value.trim().length<2){inp.classList.add('err');document.getElementById(ch[i][1]).classList.add('show');ok=false}}var em=document.getElementById('bEmail');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('err');document.getElementById('eE').classList.add('show');ok=false}if(!document.getElementById('bTerms').checked){document.getElementById('eTm').classList.add('show');ok=false}return ok}
+function clearErrors(){var a=document.querySelectorAll('.fi.err');for(var i=0;i<a.length;i++)a[i].classList.remove('err');var b=document.querySelectorAll('.ferr.show');for(var i=0;i<b.length;i++)b[i].classList.remove('show')}
+function submitWA(){var s=bs,c2=C[s.ca]||C.drilling,ref='WE-2026-'+String(Math.floor(Math.random()*9000+1000)),dy=Math.round((new Date(s.e)-new Date(s.s))/864e5)+1;var m=['*WELL EXPERTS BOOKING*','','Ref: *'+ref+'*','','*COURSE*','Course: '+s.co,'Category: '+c2.l,'Dates: '+fmLong(s.s)+' - '+fmLong(s.e),'Duration: '+dy+'d','Location: '+s.lo,'Instructor: '+(s.ins||'TBA'),'Price: '+(s.price||'TBD'),'Pax: '+document.getElementById('bPax').value,'Lang: '+document.getElementById('bLang').value,'','*CONTACT*','Name: '+document.getElementById('bName').value.trim(),'Title: '+document.getElementById('bTitle').value.trim(),'Company: '+document.getElementById('bCo').value.trim(),'Email: '+document.getElementById('bEmail').value.trim(),'Phone: '+document.getElementById('bPhone').value.trim(),'Country: '+document.getElementById('bCountry').value,'Exp: '+document.getElementById('bExp').value];var n=document.getElementById('bNotes').value.trim();if(n)m.push('','Notes: '+n);m.push('','well-experts.org');window.open(WA+'&text='+encodeURIComponent(m.join('\n')),'_blank');wz=3;updateWiz();document.getElementById('confirmView').style.display='block';document.getElementById('cRef').textContent=ref;document.getElementById('bBack').style.display='none';showToast('Sent via WhatsApp!')}
+
+// ══════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════
+function fmShort(s){if(!s)return'';return new Date(s+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+function fmLong(s){if(!s)return'';return new Date(s+'T00:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'})}
+function showToast(msg){var t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('active');setTimeout(function(){t.classList.remove('active')},4000)}
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');document.querySelector('.mob-btn').classList.toggle('open')}
+function animCount(id,tgt,sfx){var el=document.getElementById(id),cur=0,step=Math.ceil(tgt/50);var iv=setInterval(function(){cur+=step;if(cur>=tgt){cur=tgt;clearInterval(iv)}el.textContent=cur+(sfx||'+')},40)}
+function updateSeatCount(){var td=new Date().toISOString().split('T')[0],tot=0;for(var i=0;i<S.length;i++)if(S[i].e>=td)tot+=(S[i].cp-(S[i].en||0));var el=document.getElementById('sbCount');if(el)el.textContent=tot+' seats'}
+
+// ══════════════════════════════════════════
+// SCROLL HANDLER
+// ══════════════════════════════════════════
+window.addEventListener('scroll',function(){var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('scrollProg').style.width=(h>0?y/h*100:0)+'%';document.getElementById('stickyBar').classList.toggle('show',y>600);document.getElementById('btt').classList.toggle('show',y>400)});
+
+// ══════════════════════════════════════════
+// SOCIAL PROOF
+// ══════════════════════════════════════════
+var notifs=['<strong>Ahmed</strong> from Oman booked <strong>IWCF L4</strong>','<strong>Team</strong> from UAE booked <strong>DWOS</strong>','<strong>Mohamed</strong> from Egypt booked <strong>Well Control</strong>','<strong>Sara</strong> from KSA requested <strong>training</strong>','<strong>PDO team</strong> enrolled in <strong>Simulator</strong>','<strong>Khalid</strong> from Kuwait booked <strong>WellSharp</strong>'];
+var ni=0;function showNotif(){var el=document.getElementById('notif'),tx=document.getElementById('notifTxt');tx.innerHTML=notifs[ni%notifs.length]+'<div style="font-size:10px;color:var(--t3);margin-top:2px">'+Math.floor(Math.random()*20+2)+' min ago</div>';el.classList.add('show');ni++;setTimeout(function(){el.classList.remove('show')},5000)}
+function captureLead(){var email=document.getElementById('leadEmail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){document.getElementById('leadEmail').style.borderColor='var(--rd)';return}document.getElementById('leadEmail').style.borderColor='var(--gr)';window.open(WA+'&text='+encodeURIComponent('New lead: '+email),'_blank');document.getElementById('leadEmail').value='';showToast('You will be notified!')}
+
+// ══════════════════════════════════════════
+// SMOOTH INIT SEQUENCE
+// ══════════════════════════════════════════
+// Step 1: Render all fallback content (instant - no network)
+renderFilters();
+renderCourses();
+renderReviews();
+renderClients();
+renderShowcase();
+renderFAQ();
+updateSeatCount();
+
+// Step 2: Start counters
+animCount('cn1',500,'+');
+animCount('cn2',120,'+');
+animCount('cn3',5,'');
+animCount('cn4',3,'');
+animCount('cn5',3000,'+');
+
+// Step 3: Fade in floating videos after 1.5 seconds
+setTimeout(renderFloats, 1500);
+
+// Step 4: Load sheet data after 3 seconds (page already looks complete)
+setTimeout(loadAll, 3000);
+setInterval(loadAll, 60000);
+
+// Step 5: Social proof after 15 seconds
+setTimeout(function(){showNotif();setInterval(showNotif,20000)},15000);
+
+// ══════════════════════════════════════════
+// EVENT LISTENERS
+// ══════════════════════════════════════════
+document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeBook()});
+document.getElementById('detailModal').addEventListener('click',function(e){if(e.target===this)closeDetail()});
+document.getElementById('btt').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
+var anchors=document.querySelectorAll('a[href^="#"]');
+for(var i=0;i<anchors.length;i++){anchors[i].addEventListener('click',function(e){e.preventDefault();var target=document.querySelector(this.getAttribute('href'));if(target)target.scrollIntoView({behavior:'smooth',block:'start'})});}
+</script>
+</body>
+</html>
